@@ -97,6 +97,7 @@ body {
     cursor: pointer;
     outline: none;
     letter-spacing: 1px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 /* .btn-spin:focus {
