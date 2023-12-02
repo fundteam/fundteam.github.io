@@ -91,6 +91,7 @@ body {
     outline: none;
     letter-spacing: 1px;
     -webkit-tap-highlight-color: transparent;
+    padding: 0px;
 }
 
 /* .btn-spin:focus {
