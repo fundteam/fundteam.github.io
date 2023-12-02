@@ -244,7 +244,7 @@ body {
 }
 
 .custom-model-wrap span {
-    font-size: calc(5vh + 10px);
+    font-size: 10vmin;
     color: #fff;
 }
 
