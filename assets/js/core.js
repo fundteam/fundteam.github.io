@@ -41,6 +41,7 @@ const prizeOffset = Math.floor(180 / prizes.length);
 const spinClass = "is-spinning";
 const selectedClass = "selected";
 const spinnerStyles = window.getComputedStyle(spinner);
+let sound = new Audio("/assets/sounds/ding.mp3");
 let tickerAnim;
 let rotation = 0;
 let currentSlice = 0;
@@ -102,6 +103,7 @@ const runTickerAnimation = () => {
     ticker.style.animation = "none";
     setTimeout(() => (ticker.style.animation = null), 10);
     currentSlice = slice;
+    sound.play()
   }
 
   tickerAnim = requestAnimationFrame(runTickerAnimation);
