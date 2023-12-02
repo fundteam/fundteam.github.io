@@ -1,4 +1,4 @@
-const prizes = [
+const sample = [
   {
     text: "Product 1",
     color: "#2570af",
@@ -35,32 +35,32 @@ const wheel = document.querySelector(".deal-wheel");
 const spinner = wheel.querySelector(".spinner");
 const ticker = wheel.querySelector(".ticker");
 const trigger = document.querySelector("#btn-spin");
-// const reaper = wheel.querySelector(".grim-reaper");
-const prizeSlice = 360 / prizes.length;
-const prizeOffset = Math.floor(180 / prizes.length);
 const spinClass = "is-spinning";
 const selectedClass = "selected";
 const spinnerStyles = window.getComputedStyle(spinner);
+let prizeSlice = 360;
+let prizeOffset = 180;
 let sound = new Audio("/assets/sounds/ding.mp3");
 let tickerAnim;
 let rotation = 0;
 let currentSlice = 0;
 let prizeNodes;
 
-const createPrizeNodes = () => {
+const createPrizeNodes = (prizes) => {
+  spinner.innerHTML = "";
   prizes.forEach(({ text, color, reaction }, i) => {
     const rotation = prizeSlice * i * -1 - prizeOffset;
 
     spinner.insertAdjacentHTML(
       "beforeend",
-      `<li class="prize" data-reaction=${reaction} style="--rotate: ${rotation}deg">
+      `<li class="prize" data-text="${text}" data-color="${color}" data-reaction=${reaction} style="--rotate: ${rotation}deg">
         <span class="text">${text}</span>
       </li>`
     );
   });
 };
 
-const createConicGradient = () => {
+const createConicGradient = (prizes) => {
   spinner.setAttribute(
     "style",
     `background: conic-gradient(
@@ -75,9 +75,11 @@ const createConicGradient = () => {
   );
 };
 
-const setupWheel = () => {
-  createConicGradient();
-  createPrizeNodes();
+const setupWheel = (prizes) => {
+  prizeSlice = 360 / prizes.length;
+  prizeOffset = Math.floor(180 / prizes.length)
+  createConicGradient(prizes);
+  createPrizeNodes(prizes);
   prizeNodes = wheel.querySelectorAll(".prize");
 };
 
@@ -114,7 +116,10 @@ const runTickerAnimation = () => {
 const selectPrize = () => {
   const selected = Math.floor(rotation / prizeSlice);
   prizeNodes[selected].classList.add(selectedClass);
-  //reaper.dataset.reaction = prizeNodes[selected].dataset.reaction;
+
+  document.querySelector(".pop-up-content-wrap span").innerHTML = prizeNodes[selected].getAttribute("data-text");
+  document.querySelector(".custom-model-wrap").style.background = prizeNodes[selected].getAttribute("data-color");
+  document.querySelector(".custom-model-main").classList.add('model-open');
 };
 
 trigger.addEventListener("click", () => {
@@ -141,4 +146,8 @@ spinner.addEventListener("transitionend", () => {
   spinner.style.setProperty("--rotate", rotation);
 });
 
-setupWheel();
+document.querySelector(".custom-model-main").addEventListener("click", () => {
+  document.querySelector(".custom-model-main").classList.remove('model-open');
+});
+
+setupWheel(sample);
