@@ -220,7 +220,6 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 600px;
     padding: 15px;
     margin: 30px auto;
     max-width: 97%;
@@ -240,7 +239,6 @@ body {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     max-height: calc(100vh - 70px);
-    overflow-y: auto;
 }
 
 .custom-model-wrap span {
