@@ -1,32 +1,32 @@
 const sample = [
   {
-    text: "Product 1",
-    color: "#2570af",
+    text: "Apixaban",
+    color: "#ff7800",
     reaction: "a",
   },
   {
-    text: "Product 2",
-    color: "#4b89bd",
+    text: "Rosuvastatin",
+    color: "#ffd6ab",
     reaction: "b",
   },
   {
-    text: "Product 3",
-    color: "#97bad8",
+    text: "Company",
+    color: "#ff7800",
     reaction: "c",
   },
   {
-    text: "Product 1",
-    color: "#2570af",
+    text: "Apixaban",
+    color: "#ffd6ab",
     reaction: "a",
   },
   {
-    text: "Product 2",
-    color: "#4b89bd",
+    text: "Rosuvastatin",
+    color: "#ff7800",
     reaction: "b",
   },
   {
-    text: "Product 3",
-    color: "#97bad8",
+    text: "Company",
+    color: "#ffd6ab",
     reaction: "c",
   },
 ];

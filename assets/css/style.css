@@ -11,12 +11,25 @@ body {
 body {
     margin: 0;
     padding: 0;
-    background-color: #34495e;
+    background-image: url("../images/background.webp");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
     display: flex;
     place-items: center;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+}
+
+.logo {
+    position: absolute;
+    width: auto;
+    height: 15vmin;
+    top: 10vmin;
+    left: 10vmin;
+    border-radius: 10%;
+    z-index: 999;
 }
 
 .deal-wheel {
@@ -78,7 +91,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
-    background-color: #064898;
+    background-color: #00c6fd;
     text-transform: uppercase;
     border: 6px solid #fff;
     font-weight: bold;
@@ -109,9 +122,9 @@ body {
     left: calc(var(--size) / -15);
     width: calc(var(--size) / 10);
     height: calc(var(--size) / 20);
-    background: linear-gradient(#042E62, #386DAD 100%);
+    background: linear-gradient(#bbbbbb, #e4e4e4 100%);
     z-index: 1;
-    clip-path: polygon(20% 0, 100% 50%, 20% 100%, 0% 50%);
+    clip-path: polygon(35% 0, 100% 50%, 35% 100%);
     transform-origin: center left;
 }
 
@@ -245,7 +258,7 @@ body {
 }
 
 .bg-overlay {
-    background: rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0, 0.4);
     height: 100vh;
     width: 100%;
     position: fixed;
