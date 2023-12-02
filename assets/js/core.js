@@ -103,7 +103,9 @@ const runTickerAnimation = () => {
     ticker.style.animation = "none";
     setTimeout(() => (ticker.style.animation = null), 10);
     currentSlice = slice;
-    sound.play()
+    sound.pause();
+    sound.currentTime = 0;
+    sound.play();
   }
 
   tickerAnim = requestAnimationFrame(runTickerAnimation);
